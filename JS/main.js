@@ -50,20 +50,19 @@ function pushToDom() {
   container.innerHTML = "";
 
   myLibrary.forEach(function (book) {
-
     let bookDiv = document.createElement("div");
-    bookDiv.classList.add('book');
+    bookDiv.classList.add("book");
 
     let title = document.createElement("h3");
-    title.classList.add('book-title');
+    title.classList.add("book-title");
     title.textContent = book.title;
 
     let author = document.createElement("p");
-    author.classList.add('book-author');
+    author.classList.add("book-author");
     author.textContent = "Author: " + book.author;
 
     let pages = document.createElement("p");
-    pages.classList.add('book-pages')
+    pages.classList.add("book-pages");
     pages.textContent = "Pages: " + book.pages;
 
     bookDiv.append(title, author, pages);
