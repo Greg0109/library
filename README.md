@@ -2,8 +2,7 @@
 
 [LIVE LINK](https://ryelbanfield.github.io/library/)
 
-A web app to keep track of shows you look at and share your reviews with
-friends. A user can write an article and upload an image.
+A small library app.
 
 Additional description about the project and its features.
 
