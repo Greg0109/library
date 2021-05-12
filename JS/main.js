@@ -87,12 +87,12 @@ submitButton.addEventListener("click", (bookData) => {
   pushToDom();
 });
 
-addBook.addEventListener("click", function () {
+addBook.addEventListener("click", function (e) {
   if (form.classList.contains("d-none")) {
     e.target.textContent = "Hide Form";
     form.classList.remove("d-none");
   } else {
-    e.target.textContent = "Show Form";
+    e.target.textContent = "Add Book";
     form.classList.add("d-none");
   }
 });
