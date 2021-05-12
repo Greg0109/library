@@ -1,49 +1,24 @@
-let myLibrary = [
-  // {
-  //   title: "Pizza.",
-  //   author: "Ryel.",
-  //   pages: 69,
-  // },
-  // {
-  //   title: "Movies.",
-  //   author: "Ryel.",
-  //   pages: 69,
-  // },
-  // {
-  //   title: "Video Games.",
-  //   author: "Ryel.",
-  //   pages: 69,
-  // },
-];
+// Global Variables
 
-function Book(title, author, pages) {
+let myLibrary = [];
+
+let submitButton = document.querySelector(".submit-btn");
+let form = document.querySelector("form");
+let addBook = document.querySelector(".add-book");
+
+// Functions
+
+function Book(title, author, pages, read = "Not yet read") {
   this.title = title;
   this.author = author;
   this.pages = pages;
+  this.read = read;
 }
 
 function addBookToLibrary(title, author, pages) {
   let book = new Book(title, author, pages);
   myLibrary.push(book);
 }
-
-let submitButton = document.querySelector(".submit-btn");
-
-submitButton.addEventListener("click", (bookData) => {
-  bookData.preventDefault();
-  let title = document.getElementById("title").value;
-  let author = document.getElementById("author").value;
-  let pages = document.getElementById("pages").value;
-  pages = parseInt(pages);
-
-  addBookToLibrary(title, author, pages);
-  let form = document.querySelector("form");
-  form.reset();
-
-  pushToDom();
-});
-
-console.log(myLibrary);
 
 function pushToDom() {
   let container = document.querySelector(".js-container");
@@ -65,7 +40,61 @@ function pushToDom() {
     pages.classList.add("book-pages");
     pages.textContent = "Pages: " + book.pages;
 
-    bookDiv.append(title, author, pages);
+    let read = document.createElement("button");
+    read.classList.add("book-read");
+    read.textContent =
+      book.read === "Not yet read" ? "Not yet read" : "Finished reading.";
+
+    let deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete-button");
+    deleteButton.textContent = "Delete";
+
+    bookDiv.append(title, author, pages, read, deleteButton);
     container.appendChild(bookDiv);
+
+    read.addEventListener("click", readStatus);
+
+    deleteButton.addEventListener("click", deleteBook);
   });
 }
+
+function readStatus() {
+  this.parentNode.read =
+    this.parentNode.read === "Not yet read"
+      ? "Finished reading"
+      : "Not yet read";
+  this.parentNode.querySelector(".book-read").textContent =
+    this.parentNode.querySelector(".book-read").textContent === "Not yet read"
+      ? "Finished reading"
+      : "Not yet read";
+}
+
+function deleteBook() {
+  myLibrary.splice(this.parentNode, 1);
+  this.parentNode.remove();
+}
+
+// Event Listeners
+
+submitButton.addEventListener("click", (bookData) => {
+  bookData.preventDefault();
+  let title = document.getElementById("title").value;
+  let author = document.getElementById("author").value;
+  let pages = document.getElementById("pages").value;
+  pages = parseInt(pages);
+  addBookToLibrary(title, author, pages);
+  form.reset();
+  pushToDom();
+});
+
+addBook.addEventListener("click", function () {
+  if (form.classList.contains("d-none")) {
+    e.target.textContent = "Hide Form";
+    form.classList.remove("d-none");
+  } else {
+    e.target.textContent = "Show Form";
+    form.classList.add("d-none");
+  }
+});
+
+pushToDom();

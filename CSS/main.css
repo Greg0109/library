@@ -1,11 +1,16 @@
 .book {
   background-color: #dc3545;
   border-radius: 20px;
-  width: 200px;
-  height: 180px;
+  width: 250px;
+  height: 250px;
   margin: 50px 20px 0 20px;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.book-read,
+.delete-button {
+  background-color: #6c757d;
 }
