@@ -1,0 +1,11 @@
+.book {
+  background-color: #dc3545;
+  border-radius: 20px;
+  width: 200px;
+  height: 180px;
+  margin: 50px 20px 0px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
