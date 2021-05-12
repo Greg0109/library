@@ -11,6 +11,11 @@ Additional description about the project and its features.
 - JavaScript
 - Bootstrap
 
+## Getting Started
+
+- Download or clone this repo.
+- Open project and launch live server.  
+
 ## Author
 
 👤 **Ryel Banfield**
