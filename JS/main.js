@@ -21,11 +21,12 @@ function addBookToLibrary(title, author, pages) {
 
 function readStatus() {
   this.parentNode.read = this.parentNode.read === 'Not yet read'
-    ? 'Finished reading'
-    : 'Not yet read';
-  this.parentNode.querySelector('.book-read').textContent = this.parentNode.querySelector('.book-read').textContent === 'Not yet read'
-    ? 'Finished reading'
-    : 'Not yet read';
+                             ? 'Finished reading'
+                             : 'Not yet read';
+  this.parentNode.querySelector('.book-read').textContent =
+      this.parentNode.querySelector('.book-read').textContent === 'Not yet read'
+          ? 'Finished reading'
+          : 'Not yet read';
 }
 
 function deleteBook() {
@@ -55,7 +56,8 @@ function pushToDom() {
 
     const read = document.createElement('button');
     read.classList.add('book-read');
-    read.textContent = book.read === 'Not yet read' ? 'Not yet read' : 'Finished reading.';
+    read.textContent =
+        book.read === 'Not yet read' ? 'Not yet read' : 'Finished reading.';
 
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('delete-button');
