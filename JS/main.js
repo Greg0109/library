@@ -1,4 +1,4 @@
-// Global Variables
+// GLOBAL VARIABLES
 
 let myLibrary = [];
 
@@ -6,7 +6,7 @@ let submitButton = document.querySelector(".submit-btn");
 let form = document.querySelector("form");
 let addBook = document.querySelector(".add-book");
 
-// Functions
+// FUNCTIONS
 
 function Book(title, author, pages, read = "Not yet read") {
   this.title = title;
@@ -74,7 +74,7 @@ function deleteBook() {
   this.parentNode.remove();
 }
 
-// Event Listeners
+// EVENT LISTENERS
 
 submitButton.addEventListener("click", (bookData) => {
   bookData.preventDefault();
@@ -96,5 +96,3 @@ addBook.addEventListener("click", function (e) {
     form.classList.add("d-none");
   }
 });
-
-pushToDom();
