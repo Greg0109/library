@@ -1,6 +1,6 @@
 # Library
 
-[LIVE LINK]()
+[LIVE LINK](https://ryelbanfield.github.io/library/)
 
 A web app to keep track of shows you look at and share your reviews with
 friends. A user can write an article and upload an image.
@@ -11,12 +11,6 @@ Additional description about the project and its features.
 
 - JavaScript
 - Bootstrap
-
-## Getting Started
-
-To get a local copy up and running follow these simple example steps.
-
-### Usage
 
 ## Author
 
