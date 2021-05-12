@@ -14,7 +14,7 @@ Additional description about the project and its features.
 ## Getting Started
 
 - Download or clone this repo.
-- Open project and launch live server.  
+- Open project and launch live server.
 
 ## Author
 
