@@ -19,18 +19,6 @@ function addBookToLibrary(title, author, pages, read) {
   myLibrary.push(book);
 }
 
-function readStatus(book) {
-  const readButton = document.querySelector('.book-read');
-  readButton.addEventListener('click', () => {
-    book.read = book.read === 'Not yet read'
-      ? 'Finished reading'
-      : 'Not yet read';
-    readButton.textContent = readButton.textContent === 'Not yet read'
-      ? 'Finished reading'
-      : 'Not yet read';
-  });
-}
-
 function deleteBook() {
   myLibrary.splice(this.parentNode, 1);
   this.parentNode.remove();
@@ -67,13 +55,30 @@ function pushToDom() {
     bookDiv.append(title, author, pages, read, deleteButton);
     container.appendChild(bookDiv);
 
-    readStatus(book);
+    read.addEventListener('click', (e) => {
+      book.read = book.read === 'Not yet read'
+        ? 'Finished reading'
+        : 'Not yet read';
+      e.target.textContent = e.target.textContent === 'Not yet read'
+        ? 'Finished reading'
+        : 'Not yet read';
+    });
 
     deleteButton.addEventListener('click', deleteBook);
   });
 }
 
 // EVENT LISTENERS
+
+addBook.addEventListener('click', (e) => {
+  if (form.classList.contains('d-none')) {
+    e.target.textContent = 'Hide Form';
+    form.classList.remove('d-none');
+  } else {
+    e.target.textContent = 'Add Book';
+    form.classList.add('d-none');
+  }
+});
 
 submitButton.addEventListener('click', (bookData) => {
   bookData.preventDefault();
@@ -91,14 +96,4 @@ submitButton.addEventListener('click', (bookData) => {
   addBookToLibrary(title, author, pages, read);
   form.reset();
   pushToDom();
-});
-
-addBook.addEventListener('click', (e) => {
-  if (form.classList.contains('d-none')) {
-    e.target.textContent = 'Hide Form';
-    form.classList.remove('d-none');
-  } else {
-    e.target.textContent = 'Add Book';
-    form.classList.add('d-none');
-  }
 });
