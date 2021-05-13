@@ -1,9 +1,12 @@
 # Library
 
-[LIVE LINK]()
+[Click here to view live demo](https://ryelbanfield.github.io/library/)
 
-A web app to keep track of shows you look at and share your reviews with
-friends. A user can write an article and upload an image.
+A small library app.
+
+Users can create `books` and mark those `books` as either `Finished reading` or `Not yet read`. Users can also `delete` the `books` if they like.
+
+![screenshot](./Screenshot.png)
 
 Additional description about the project and its features.
 
@@ -14,9 +17,8 @@ Additional description about the project and its features.
 
 ## Getting Started
 
-To get a local copy up and running follow these simple example steps.
-
-### Usage
+- Download or clone this repo by using `git clone https://github.com/RyelBanfield/library.git`
+- Enter the project folder and run locally by using a VS Code extension such as `Live Server`.
 
 ## Author
 
@@ -30,7 +32,7 @@ To get a local copy up and running follow these simple example steps.
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](issues/).
+Feel free to check the [issues page](../../issues/).
 
 ## Show your support
 
