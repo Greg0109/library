@@ -7,25 +7,28 @@ const addBook = document.querySelector('.add-book');
 
 // FUNCTIONS
 
-function Book(title, author, pages, read = 'Not yet read') {
+function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.read = read;
 }
 
-function addBookToLibrary(title, author, pages) {
-  const book = new Book(title, author, pages);
+function addBookToLibrary(title, author, pages, read) {
+  const book = new Book(title, author, pages, read);
   myLibrary.push(book);
 }
 
-function readStatus() {
-  this.parentNode.read = this.parentNode.read === 'Not yet read'
-    ? 'Finished reading'
-    : 'Not yet read';
-  this.parentNode.querySelector('.book-read').textContent = this.parentNode.querySelector('.book-read').textContent === 'Not yet read'
-    ? 'Finished reading'
-    : 'Not yet read';
+function readStatus(book) {
+  const readButton = document.querySelector('.book-read');
+  readButton.addEventListener('click', () => {
+    book.read = book.read === 'Not yet read'
+      ? 'Finished reading'
+      : 'Not yet read';
+    readButton.textContent = readButton.textContent === 'Not yet read'
+      ? 'Finished reading'
+      : 'Not yet read';
+  });
 }
 
 function deleteBook() {
@@ -64,7 +67,7 @@ function pushToDom() {
     bookDiv.append(title, author, pages, read, deleteButton);
     container.appendChild(bookDiv);
 
-    read.addEventListener('click', readStatus);
+    readStatus(book);
 
     deleteButton.addEventListener('click', deleteBook);
   });
@@ -79,7 +82,13 @@ submitButton.addEventListener('click', (bookData) => {
   let pages = document.getElementById('pages').value;
   // eslint-disable-next-line radix
   pages = parseInt(pages);
-  addBookToLibrary(title, author, pages);
+  let read = '';
+  if (document.getElementById('Not yet read').checked) {
+    read = document.getElementById('Not yet read').value;
+  } else {
+    read = document.getElementById('Finished reading').value;
+  }
+  addBookToLibrary(title, author, pages, read);
   form.reset();
   pushToDom();
 });
