@@ -7,15 +7,12 @@ const addBook = document.querySelector('.add-book');
 
 // FUNCTIONS
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-}
+const Book = (title, author, pages, read) => ({
+  title, author, pages, read,
+});
 
 function addBookToLibrary(title, author, pages, read) {
-  const book = new Book(title, author, pages, read);
+  const book = Book(title, author, pages, read);
   myLibrary.push(book);
 }
 
